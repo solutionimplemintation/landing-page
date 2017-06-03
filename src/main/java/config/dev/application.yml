@@ -1,0 +1,15 @@
+spring:
+  profiles:
+    active: dev
+
+server:
+  port: 8083
+#  contextPath: /service
+
+logging:
+  pattern:
+    file: "%d %-5level [%thread] %logger : %msg%n"
+
+multipart:
+  maxFileSize: 128KB
+  maxRequestSize: 128KB
