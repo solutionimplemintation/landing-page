@@ -2,6 +2,16 @@ spring:
   profiles:
     active: dev
 
+datasource:
+  url:  jdbc:oracle:thin:@localhost:1521/orcl
+  username: NETCRACKER
+  password: NETCRACKER
+  driver-class-name: oracle.jdbc.OracleDriver
+
+#  jpa:
+#    database-platform: org.hibernate.dialect.Oracle10gDialect
+#    generate-ddl: true
+
 server:
   port: 8083
 #  contextPath: /service
