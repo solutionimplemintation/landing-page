@@ -52,6 +52,8 @@ public class ServiceController {
         model.addAttribute("MANAGER_ID", employee.getManagerId());
         model.addAttribute("DEPARTMENT_ID", employee.getDepartmentId());
 
+        employeeDao.insertNewEmployee(employee);
+
         return "employees";
     }
 

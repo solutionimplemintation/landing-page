@@ -5,6 +5,7 @@ import oracle.jdbc.pool.OracleDataSource;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
@@ -13,7 +14,7 @@ import java.sql.SQLException;
 
 @Configuration
 @ConfigurationProperties(prefix = "datasource")
-public class LandingDataSource {
+public class NCDataSource {
 
     @NotNull
     private String username;
@@ -36,8 +37,9 @@ public class LandingDataSource {
         this.url = url;
     }
 
+    @Primary
     @Bean
-    DataSource dataSource() throws SQLException {
+    DataSource ncDataSource() throws SQLException {
         OracleDataSource dataSource = new OracleDataSource();
         dataSource.setUser(username);
         dataSource.setPassword(password);
@@ -47,8 +49,8 @@ public class LandingDataSource {
         return dataSource;
     }
 
-    @Bean
-    JdbcTemplate jdbcTemplate(DataSource dataSource) throws SQLException {
+    @Bean(name = "jdbc/nc")
+    JdbcTemplate ncJdbcTemplate(DataSource dataSource) throws SQLException {
         return new JdbcTemplate(dataSource);
     }
 

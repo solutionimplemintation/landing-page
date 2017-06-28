@@ -2,10 +2,18 @@ spring:
   profiles:
     active: dev
 
+#first db
 datasource:
   url:  jdbc:oracle:thin:@localhost:1521/orcl
   username: NETCRACKER
   password: NETCRACKER
+  driver-class-name: oracle.jdbc.OracleDriver
+
+#second db
+secondDatasource:
+  url:  jdbc:oracle:thin:@localhost:1521/orcl
+  username: LANDING
+  password: LANDING
   driver-class-name: oracle.jdbc.OracleDriver
 
 #  jpa:
