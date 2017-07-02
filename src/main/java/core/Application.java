@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 
 @EnableAutoConfiguration
-@ComponentScan({"config", "controller", "core", "logging"})
+@ComponentScan({"config", "controller", "core", "logging", "domain"})
 public class Application {
 
     public static void main(String[] args) {

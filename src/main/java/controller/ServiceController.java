@@ -19,6 +19,9 @@ public class ServiceController {
     @Autowired
     Log4j2Config log4j2Config;
 
+//    @Autowired @PhysicalClientLoader
+//    ClientLoader physicalClientLoader;
+
     @RequestMapping("/test")
     public String test(@RequestParam(value="text", defaultValue="default") String text) {
         LOG.trace("text " + text);
@@ -36,6 +39,20 @@ public class ServiceController {
     public String greeting(Model model) throws IOException {
         log4j2Config.reload();
         model.addAttribute("status", "Log4j2.xml was reload succesful!");
+        return "reloadlogconfig";
+    }
+
+    @RequestMapping("/getClientInfo")
+    public String clientInfo(Model model) {
+
+//        PhysicalClientLoaderImpl clientLoader = new PhysicalClientLoaderImpl();
+//        clientLoader.setClientId(1L);
+//        clientLoader.setFirstName("Alexander");
+//        clientLoader.setLastName("Makedonskiy");
+//
+//        model.addAttribute("description", clientLoader.getClientDescription());
+//        model.addAttribute("client_info", physicalClientLoader.load());
+
         return "reloadlogconfig";
     }
 
